@@ -1,1 +1,24 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main  # Endre til din hovedgren hvis den er annerledes
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11  # Endre til din Java-versjon
+
+    - name: Build and run tests with Maven
+      run: |
+        mvn test  # Endre til kommandoen for å kjøre testene med Maven
 
